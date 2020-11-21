@@ -100,14 +100,16 @@ function createQuestions(config) {
       message:
         config.questions && config.questions.type
           ? config.questions.type
-          : "Select the type of change you're committing:",
+          : 'コミットする変更タイプを選択:',
       source: (_, query) => Promise.resolve(query ? fuzzy.search(query) : choices)
     },
     {
       type: config.scopes ? 'list' : 'input',
       name: 'scope',
       message:
-        config.questions && config.questions.scope ? config.questions.scope : 'Specify a scope:',
+        config.questions && config.questions.scope
+          ? config.questions.scope
+          : '変更内容のスコープ (例:コンポーネントやファイル名):',
       choices: config.scopes && [{ name: '[none]', value: '' }].concat(config.scopes),
       when: !config.skipQuestions.includes('scope')
     },
@@ -117,7 +119,7 @@ function createQuestions(config) {
       message:
         config.questions && config.questions.subject
           ? config.questions.subject
-          : 'Write a short description:',
+          : '変更内容を要約した本質的説明:',
       maxLength: config.subjectMaxLength,
       filter: (subject, answers) => formatHead({ ...answers, subject }, config)
     },
@@ -125,17 +127,28 @@ function createQuestions(config) {
       type: 'input',
       name: 'body',
       message:
-        config.questions && config.questions.body
-          ? config.questions.body
-          : 'Provide a longer description:',
+        config.questions && config.questions.body ? config.questions.body : '変更内容の詳細:',
       when: !config.skipQuestions.includes('body')
+    },
+    {
+      type: 'confirm',
+      name: 'isBreaking',
+      message: '破壊的変更を含みますか？',
+      default: false
     },
     {
       type: 'input',
       name: 'breakingBody',
-      message:
-        'A BREAKING CHANGE commit requires a body. Please enter a longer description of the commit itself:\n',
-      when: !config.skipQuestions.includes('breaking')
+      message: '破壊的変更についての記述:\n',
+      when: function(answers) {
+        return answers.isBreaking
+      }
+    },
+    {
+      type: 'confirm',
+      name: 'isIssueAffected',
+      message: 'issueに関連した変更ですか？',
+      default: false
     },
     {
       type: 'input',
@@ -143,8 +156,10 @@ function createQuestions(config) {
       message:
         config.questions && config.questions.issues
           ? config.questions.issues
-          : 'List any issue closed (#1, #2, ...):',
-      when: !config.skipQuestions.includes('issues')
+          : '関連issueを追記 (#1, #2, ...):',
+      when: function(answers) {
+        return answers.isIssueAffected
+      }
     }
   ]
 
@@ -179,6 +194,7 @@ function format(answers) {
  *
  * @type {Object}
  */
+
 module.exports = {
   prompter: function(cz, commit) {
     cz.prompt.registerPrompt('autocomplete', require('inquirer-autocomplete-prompt'))
