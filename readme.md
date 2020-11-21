@@ -1,4 +1,4 @@
-# cz-emoji
+# cz-emoji-japanese
 
 > Commitizen adapter formatting commit messages using emojis.
 
@@ -18,16 +18,16 @@
 **Globally**
 
 ```bash
-npm install --global cz-emoji
+npm install --global cz-emoji-japanese
 
 # set as default adapter for your projects
-echo '{ "path": "cz-emoji" }' > ~/.czrc
+echo '{ "path": "cz-emoji-japanese" }' > ~/.czrc
 ```
 
 **Locally**
 
 ```bash
-npm install --save-dev cz-emoji
+npm install --save-dev cz-emoji-japanese
 ```
 
 Add this to your `package.json`:
@@ -35,7 +35,7 @@ Add this to your `package.json`:
 ```json
 "config": {
   "commitizen": {
-    "path": "cz-emoji"
+    "path": "cz-emoji-japanese"
   }
 }
 ```
