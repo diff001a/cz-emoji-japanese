@@ -1,9 +1,9 @@
 {
   "name": "cz-emoji-japanese",
-  "version": "1.0.0",
-  "description": "Commitizen adapter formatting commit messages using emojis.",
+  "version": "1.0.1",
+  "description": "A Japanese translated commitizen adapter formatting commit messages using emojis.",
   "license": "MIT",
-  "repository": "ngryman/cz-emoji",
+  "repository": "diff001a/cz-emoji-japanese",
   "main": "index.js",
   "engines": {
     "node": ">=4"
