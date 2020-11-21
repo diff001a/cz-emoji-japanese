@@ -57,7 +57,7 @@ Configuring `cz-emoji` can be handled in the users home directory (`~/.czrc`) fo
 ```json
 {
   "config": {
-    "cz-emoji": {}
+    "cz-emoji-japanese": {}
   }
 }
 ```
@@ -73,7 +73,7 @@ An [Inquirer.js] choices array:
 ```json
 {
   "config": {
-    "cz-emoji": {
+    "cz-emoji-japanese": {
       "types": [
         {
           "emoji": "🌟",
@@ -94,7 +94,7 @@ An [Inquirer.js] choices array:
 ```json
 {
   "config": {
-    "cz-emoji": {
+    "cz-emoji-japanese": {
       "scopes": ["home", "accounts", "ci"]
     }
   }
@@ -108,7 +108,7 @@ A boolean value that allows for an using a unicode value rather than the default
 ```json
 {
   "config": {
-    "cz-emoji": {
+    "cz-emoji-japanese": {
       "symbol": true
     }
   }
@@ -122,75 +122,9 @@ An array of questions you want to skip:
 ```json
 {
   "config": {
-    "cz-emoji": {
+    "cz-emoji-japanese": {
       "skipQuestions": ["scope", "issues"]
     }
   }
 }
 ```
-
-You can skip the following questions: `scope`, `body`, and `issues`. The `type` and `subject` questions are mandatory.
-
-
-#### Customize Questions
-
-An object that contains overrides of the original questions:
-
-```json
-{
-  "config": {
-    "cz-emoji": {
-      "questions": {
-        "body": "This will be displayed instead of original text"
-      }
-    }
-  }
-}
-```
-
-#### Customize the subject max length
-
-The maximum length you want your subject has
-
-```json
-{
-  "config": {
-    "cz-emoji": {
-      "subjectMaxLength": 200,
-    }
-  }
-}
-```
-
-## Examples
-
-- https://github.com/Falieson/TRAM
-
-## Commitlint
-
-Commitlint can be set to work with this package by leveraging the package https://github.com/arvinxx/commitlint-config-gitmoji.
-
-```bash
-npm install --save-dev commitlint-config-gitmoji
-```
-
-_commitlint.config.js_
-
-```js
-module.exports = {
-  extends: ['gitmoji'],
-  parserPreset: {
-    parserOpts: {
-      headerPattern: /^(:\w*:)(?:\s)(?:\((.*?)\))?\s((?:.*(?=\())|.*)(?:\(#(\d*)\))?/,
-      headerCorrespondence: ['type', 'scope', 'subject', 'ticket']
-    }
-  }
-}
-```
-
-## License
-
-MIT © [Nicolas Gryman](http://ngryman.sh)
-
-[commitizen]: https://github.com/commitizen/cz-cli
-[inquirer.js]: https://github.com/SBoudrias/Inquirer.js/
