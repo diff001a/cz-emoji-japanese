@@ -1,25 +1,31 @@
 [
   {
-    "emoji": "🎉",
-    "code": ":tada:",
+    "emoji": "🌱",
+    "code": ":seedling:",
     "description": "最初のコミット",
     "name": "init"
   },
   {
-    "emoji": "✨",
-    "code": ":sparkles:",
+    "emoji": "🎉",
+    "code": ":tada:",
     "description": "機能の追加",
     "name": "feature"
   },
   {
-    "emoji": "🐛",
-    "code": ":bug:",
+    "emoji": "✨",
+    "code": ":sparkles:",
+    "description": "機能の改善",
+    "name": "improve"
+  },
+  {
+    "emoji": "🐞",
+    "code": ":beetle:",
     "description": "バグ修正",
     "name": "fix"
   },
   {
-    "emoji": "📝",
-    "code": ":memo:",
+    "emoji": "📚",
+    "code": ":books:",
     "description": "ドキュメントのみの変更",
     "name": "docs"
   },
@@ -32,13 +38,13 @@
   {
     "emoji": "🎨",
     "code": ":art:",
-    "description": "フォーマットの変更（コードの動作に影響しないスペース、フォーマット、セミコロンなど）",
+    "description": "フォーマットの変更",
     "name": "style"
   },
   {
     "emoji": "💎",
     "code": ":gem:",
-    "description": "リファクタリングのための変更（機能追加やバグ修正を含まない）",
+    "description": "リファクタリングのための変更",
     "name": "refactor"
   },
   {
@@ -56,7 +62,7 @@
   {
     "emoji": "📦",
     "code": ":package:",
-    "description": "ビルドシステムや外部依存に関する変更（スコープ例: gulp, broccoli, npm）",
+    "description": "ビルドシステムや外部依存に関する変更",
     "name": "build"
   },
   {
